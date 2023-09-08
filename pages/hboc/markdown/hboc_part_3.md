@@ -1,5 +1,4 @@
-
-## Teil 3: Familiäres Tumorprädispositionssyndrom
+## Teil 3: Ergebnisse der molekulargenetischen Testung
 
 Die Tabelle zeigt verschiedene Varianten die in der
 Untersuchung der Mutter vom Index identifiziert wurden.

@@ -4,7 +4,30 @@ from PIL import Image
 
 import settings
 
-def print_wbs_part():
+def print_wbs_part(show_answers):
+
+    if show_answers:
+        answers_wbs = {
+            "wbs_answer_1" : "Williams-Beuren-Syndrom",
+            "wbs_part_2_answer_1" : ["Supravalvular aortic stenosis", "Hypercalcemia", "Low birth weight/slow weight gain", "Developemental delay", "Short stature", "Increased incedence of umbilical and inguinal hernias", "Hyperacusis"],
+            "wbs_part_2_answer_2" : ["Supravalvular aortic stenosis", "Developemental delay"],
+            "wbs_part_3_answer_2_cause" : "7q11.2",
+            "wbs_part_3_answer_2_inher" : "autosomal dominant",
+            "wbs_part_2_answer_3" : 3,
+            "wbs_part_2_answer_3_2" : "de novo"
+        }
+    else:
+        answers_wbs = {
+            "wbs_answer_1" : "",
+            "wbs_part_2_answer_1" : [],
+            "wbs_part_2_answer_2" : [],
+            "wbs_part_3_answer_2_cause" : "",
+            "wbs_part_3_answer_2_inher" : "",
+            "wbs_part_2_answer_3" : 0,
+            "wbs_part_2_answer_3_2" : ""
+        }
+
+
     st.markdown(
         """
         ## Teil 1: Syndromales Kind in der Familie - Einordnung
@@ -31,7 +54,7 @@ def print_wbs_part():
         """
     )
 
-    wbs_answer_1 = st.text_input("Antwort hier eingeben").lower()
+    wbs_answer_1 = st.text_input("Antwort hier eingeben", value=answers_wbs["wbs_answer_1"]).lower()
 
     if wbs_answer_1 == "":
         wbs_part_2 = False
@@ -73,7 +96,7 @@ def print_wbs_part():
             "Polydactyly",
             "Developemental delay"
             ]
-        wbs_part_2_answer_1 = st.multiselect("Antwort", wbs_symptoms_convoluted)
+        wbs_part_2_answer_1 = st.multiselect("Antwort", wbs_symptoms_convoluted, default=answers_wbs["wbs_part_2_answer_1"])
         
         wbs_part_2_answer_1.sort()
         wbs_symptoms.sort()
@@ -92,7 +115,7 @@ def print_wbs_part():
                 :question: Welche Symptome passen zu den beschriebenen Symptomen des Cousins?
                 """
             )
-            wbs_part_2_answer_2 = st.multiselect("Antwort", wbs_symptoms)
+            wbs_part_2_answer_2 = st.multiselect("Antwort", wbs_symptoms, default=answers_wbs["wbs_part_2_answer_2"])
             wbs_symptoms_cousin = ["Supravalvular aortic stenosis", "Developemental delay"]
             wbs_part_2_answer_2.sort()
             wbs_symptoms_cousin.sort()
@@ -111,14 +134,14 @@ def print_wbs_part():
                 )
                 wbs_part_3_answer_2_cols=st.columns([1,1])
                 with wbs_part_3_answer_2_cols[0]:
-                    wbs_part_3_answer_2_cause = st.text_input("Ursache", key="wbs_part_3_answer_2_cause").lower()
+                    wbs_part_3_answer_2_cause = st.text_input("Ursache", key="wbs_part_3_answer_2_cause", value=answers_wbs["wbs_part_3_answer_2_cause"]).lower()
                     if "7q11.2" in wbs_part_3_answer_2_cause:
                         st.success("Korrekt!")
                         wbs_part_3_answer_2_cause_correct = True
                     else:
                         wbs_part_3_answer_2_cause_correct = False
                 with wbs_part_3_answer_2_cols[1]:
-                    wbs_part_3_answer_2_inher = st.text_input("Erbgang", key="wbs_part_3_answer_2_inher").lower()
+                    wbs_part_3_answer_2_inher = st.text_input("Erbgang", key="wbs_part_3_answer_2_inher", value=answers_wbs["wbs_part_3_answer_2_inher"]).lower()
                     if "autosomal dominant" in wbs_part_3_answer_2_inher:
                         st.success("Korrekt!")
                         wbs_part_3_answer_2_inher_correct = True
@@ -138,9 +161,9 @@ def print_wbs_part():
                     )
                     wbs_part_2_3_cols = st.columns([1,1])
                     with wbs_part_2_3_cols[0]:
-                        wbs_part_2_answer_3 = st.selectbox("Antwort", ["unbekannt", "hoch", "moderat", "gering"], key="wbs_part_2_answer_3")
+                        wbs_part_2_answer_3 = st.selectbox("Antwort", ["unbekannt", "hoch", "moderat", "gering"], key="wbs_part_2_answer_3", index = answers_wbs["wbs_part_2_answer_3"])
                     with wbs_part_2_3_cols[1]:
-                        wbs_part_2_answer_3_2 = st.text_input("Begründung")
+                        wbs_part_2_answer_3_2 = st.text_input("Begründung", value = answers_wbs["wbs_part_2_answer_3_2"])
 
                     if wbs_part_2_answer_3 == "gering":
                         wbs_part_2_answer_3_correct = True

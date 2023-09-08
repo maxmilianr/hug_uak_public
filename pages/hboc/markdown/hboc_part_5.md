@@ -1,4 +1,4 @@
-## Teil 5: Familiäres Tumorprädispositionssyndrom
+## Teil 5: CanRisk-Risikoberechnung
 
 Wir können der Mutter des Indexpatienten eine Risikoberechnung mittels [CanRisk ](https://www.canrisk.org/)anbieten
 

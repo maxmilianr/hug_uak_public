@@ -1,5 +1,4 @@
-
-## **Teil 2: Familiäres Tumorprädispositionssyndrom**
+## **Teil 2: Molekulargenetische Testung**
 
 Ein frühes Erkrankungsalter und das gehäufte Auftreten von
 seltenen Tumorentitäten kann ein Hinweis auf das Vorliegen eines genetisch
