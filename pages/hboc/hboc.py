@@ -30,10 +30,10 @@ def print_hoc_part(show_answers):
             "hboc_part_3_answer_1" : False,
             "hboc_part_3_reason" : "",
             "hboc_part_4_answer_2" : False,
-            "hboc_part_5_answer_0" : 0,
+            "hboc_part_5_answer_0" : 0.0,
             "hboc_part_5_1_answer_1" : False,
             "hboc_part_5_2_answer_0" : "",
-            "hboc_part_7_answer_0" : 0,
+            "hboc_part_7_answer_0" : 0.0,
             "hboc_part_7_answer_1" : False,
             "hboc_part_7_answer_3" : ""
         }
