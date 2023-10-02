@@ -163,7 +163,7 @@ def print_wbs_part(show_answers):
                     with wbs_part_2_3_cols[0]:
                         wbs_part_2_answer_3 = st.selectbox("Antwort", ["unbekannt", "hoch", "moderat", "gering"], key="wbs_part_2_answer_3", index = answers_wbs["wbs_part_2_answer_3"])
                     with wbs_part_2_3_cols[1]:
-                        wbs_part_2_answer_3_2 = st.text_input("Begründung", value = answers_wbs["wbs_part_2_answer_3_2"])
+                        wbs_part_2_answer_3_2 = st.text_input("Begründung", value = answers_wbs["wbs_part_2_answer_3_2"]).lower()
 
                     if wbs_part_2_answer_3 == "gering":
                         wbs_part_2_answer_3_correct = True

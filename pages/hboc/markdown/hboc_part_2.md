@@ -5,6 +5,3 @@ seltenen Tumorentitäten kann ein Hinweis auf das Vorliegen eines genetisch
 bedingten Tumorprädispositionssyndroms sein. In unserer Familie ist das
 Vorliegen eines Tumorprädipositionssyndroms möglich, da zwei Personen früh
 erkrankten.
-
-❓ Welche bevorzugte Möglichkeit der Testung wird der
-Patientin angeboten?

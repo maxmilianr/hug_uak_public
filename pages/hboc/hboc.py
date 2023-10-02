@@ -40,8 +40,6 @@ def print_hoc_part(show_answers):
 
 
 
-
-
     st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_1.md"))
     with open('pages/hboc/pdfs/Mertens_et_al_2022.pdf', 'rb') as f:
         st.download_button('Download', f, file_name='Mertens_et_al_2022.pdf')
@@ -49,8 +47,13 @@ def print_hoc_part(show_answers):
     
     hboc_family_tree = Image.open(settings.hboc_images + "hboc_part_1_family_tree.png")
     st.image(hboc_family_tree)
+    with st.expander("Infobox - Kriterien"):
+        hboc_infobox_1 = Image.open(settings.hboc_images + "hboc_part_1_infobox_1.png")
+        st.image(hboc_infobox_1, "aus Mertens et al., 2022")
+
     st.markdown(":question: **Wann kann ein Tumorprädispositionssyndrom in der Familie vorliegen?**")
 
+    
     hboc_part_1_options= [
         "Frühes Erkrankungsalter, gehäuftes Auftreten von seltenen Tumorentitäten",
         "Später Erkrankungsalter, gehäuftes Auftreten von seltenen Tumorentitäten",
@@ -65,6 +68,12 @@ def print_hoc_part(show_answers):
         st.success("Korrekt!")
 
         st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_2.md"))
+
+        with st.expander("Infobox - Methodik"):
+            hboc_infobox_2 = Image.open(settings.hboc_images + "hboc_part_2_methods.png")
+            st.image(hboc_infobox_2, "aus Mertens et al., 2022")
+
+        st.markdown("❓ Welche bevorzugte Möglichkeit der Testung wird der Patientin angeboten?")
 
         hboc_part_2_options = [
             "Sangersequenzierung",
@@ -109,13 +118,17 @@ def print_hoc_part(show_answers):
                         st.success("Korrekt")
                         # Part 5
                         st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_5.md"))
-                        
+
+                        with open('pages/hboc/vcfs/pedigree.txt', 'rb') as f:
+                            st.download_button('Download family tree file', f, file_name='pedigree.txt')
+
+                        st.markdown("❓ Wie hoch ist das 10-Jahres-Risiko der Patientin an Brustkrebs zu erkranken?")
                         hboc_part_5_answer_0 = round(st.number_input("Antwort", step=0.1, format="%0.1f", value=answers["hboc_part_5_answer_0"]), 1)
                         
                         if hboc_part_5_answer_0 == 4.2:
                             st.success("Korrekt")
                             st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_5_1.md"))
-                            
+
                             with st.expander("Entscheidungsbaum"):
                                 hboc_dec_tree = Image.open(settings.hboc_images + "hboc_part_5_decision_tree.png")
                                 st.image(hboc_dec_tree)
