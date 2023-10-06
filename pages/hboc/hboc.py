@@ -16,8 +16,8 @@ def print_hoc_part(show_answers):
             "hboc_part_3_answer_1" : True,
             "hboc_part_3_reason" : "Keine ursächliche Variante identifiziert.",
             "hboc_part_4_answer_2" : True,
-            "hboc_part_5_answer_0" : 4.2,
-            "hboc_part_5_1_answer_1" : True,
+            "hboc_part_5_answer_0" : 3,
+            "hboc_part_5_1_answer_1" : 2,
             "hboc_part_5_2_answer_0" : "Das Lebenszeitrisiko liegt unter 5%.",
             "hboc_part_7_answer_0" : 8.6,
             "hboc_part_7_answer_1" : True,
@@ -30,8 +30,8 @@ def print_hoc_part(show_answers):
             "hboc_part_3_answer_1" : False,
             "hboc_part_3_reason" : "",
             "hboc_part_4_answer_2" : False,
-            "hboc_part_5_answer_0" : 0.0,
-            "hboc_part_5_1_answer_1" : False,
+            "hboc_part_5_answer_0" : 0,
+            "hboc_part_5_1_answer_1" : 0,
             "hboc_part_5_2_answer_0" : "",
             "hboc_part_7_answer_0" : 0.0,
             "hboc_part_7_answer_1" : False,
@@ -47,7 +47,7 @@ def print_hoc_part(show_answers):
     
     hboc_family_tree = Image.open(settings.hboc_images + "hboc_part_1_family_tree.png")
     st.image(hboc_family_tree)
-    with st.expander("Infobox - Kriterien"):
+    with st.expander("**Infobox - Kriterien**"):
         hboc_infobox_1 = Image.open(settings.hboc_images + "hboc_part_1_infobox_1.png")
         st.image(hboc_infobox_1, "aus Mertens et al., 2022")
 
@@ -66,10 +66,11 @@ def print_hoc_part(show_answers):
 
     if hboc_part_1_answer_0 and not hboc_part_1_answer_1 and not hboc_part_1_answer_2:
         st.success("Korrekt!")
+        st.write(":sparkles: Ein frühes Erkrankungsalter und das gehäufte Auftreten von seltenen Tumorentitäten kann ein Hinweis auf das Vorliegen eines genetisch bedingten Tumorprädispositionssyndroms sein. In unserer Familie ist das Vorliegen eines Tumorprädipositionssyndroms möglich, da zwei Personen früh erkrankten.")
 
         st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_2.md"))
 
-        with st.expander("Infobox - Methodik"):
+        with st.expander("**Infobox - Methodik**"):
             hboc_infobox_2 = Image.open(settings.hboc_images + "hboc_part_2_methods.png")
             st.image(hboc_infobox_2, "aus Mertens et al., 2022")
 
@@ -77,7 +78,7 @@ def print_hoc_part(show_answers):
 
         hboc_part_2_options = [
             "Sangersequenzierung",
-            "Multigen-Panelanalyse",
+            "Panelanalyse",
             "Genomsequenzierung"
         ]
 
@@ -87,98 +88,74 @@ def print_hoc_part(show_answers):
 
         if hboc_part_2_answer_1 and not hboc_part_2_answer_0 and not hboc_part_2_answer_2:
             st.success("Korrekt!")
+            st.markdown(":sparkles: Mittels einer **Panel-Analyse** werden alle Hauptgene für ein familiäres Tumorprädipositionssyndrom untersucht. Je nach Ergebnis der Analyse, ob positiv oder negativ können weitere Maßnahmen getroffen werden.")
 
-            st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_3.md"))
+            # st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_3.md"))
 
-            hboc_part_3_answer_0 = st.checkbox("Ja", key="hboc_part_3_answer_0")
-            hboc_part_3_answer_1 = st.checkbox("Nein", key="hboc_part_3_answer_1", value=answers["hboc_part_3_answer_1"])
+            # hboc_part_3_answer_0 = st.checkbox("Ja", key="hboc_part_3_answer_0")
+            # hboc_part_3_answer_1 = st.checkbox("Nein", key="hboc_part_3_answer_1", value=answers["hboc_part_3_answer_1"])
 
-            if hboc_part_3_answer_1 and not hboc_part_3_answer_0:
+            # if hboc_part_3_answer_1 and not hboc_part_3_answer_0:
 
-                hboc_part_3_reason = st.text_area("Begründe", value=answers["hboc_part_3_reason"])
+            #     hboc_part_3_reason = st.text_area("Begründe", value=answers["hboc_part_3_reason"])
 
-                if hboc_part_3_reason != "":
+            #     if hboc_part_3_reason != "":
 
-                    # Part 4
-                    st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_4.md"))
+            # Part 4
+            st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_4.md"))
 
-                    hboc_part_4_options = [
-                        "Risikominimierende Operation",
-                        "Einschluss in ein Vorsorgeprogramm", 
-                        "Berechnung des Risikos über das CanRisk-Tool",
-                        "keine weiteren Maßnahmen notwendig"
-                    ]
+            with st.expander("**Infobox - Entscheidungsbaum**"):
+                        hboc_dec_tree = Image.open(settings.hboc_images + "hboc_part_5_decision_tree.png")
+                        st.image(hboc_dec_tree)
 
-                    hboc_part_4_answer_0 = st.checkbox(hboc_part_4_options[0], key="hboc_part_4_answer_0")
-                    hboc_part_4_answer_1 = st.checkbox(hboc_part_4_options[1], key="hboc_part_4_answer_1")
-                    hboc_part_4_answer_2 = st.checkbox(hboc_part_4_options[2], key="hboc_part_4_answer_2", value=answers["hboc_part_4_answer_2"])
-                    hboc_part_4_answer_3 = st.checkbox(hboc_part_4_options[3], key="hboc_part_4_answer_3")
+            hboc_part_4_options = [
+                "Risikominimierende Operation",
+                "Einschluss in ein Vorsorgeprogramm (IFNP)", 
+                "Berechnung des Risikos über das CanRisk-Tool",
+                "keine weiteren Maßnahmen notwendig (Regelvorsorge)"
+            ]
 
-                    if hboc_part_4_answer_2 and not hboc_part_4_answer_0 and not hboc_part_4_answer_1 and not hboc_part_4_answer_3:
-                        st.success("Korrekt")
-                        # Part 5
-                        st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_5.md"))
+            hboc_part_4_answer_0 = st.checkbox(hboc_part_4_options[0], key="hboc_part_4_answer_0")
+            hboc_part_4_answer_1 = st.checkbox(hboc_part_4_options[1], key="hboc_part_4_answer_1")
+            hboc_part_4_answer_2 = st.checkbox(hboc_part_4_options[2], key="hboc_part_4_answer_2", value=answers["hboc_part_4_answer_2"])
+            hboc_part_4_answer_3 = st.checkbox(hboc_part_4_options[3], key="hboc_part_4_answer_3")
 
-                        with open('pages/hboc/vcfs/pedigree.txt', 'rb') as f:
-                            st.download_button('Download family tree file', f, file_name='pedigree.txt')
+            if hboc_part_4_answer_2 and not hboc_part_4_answer_0 and not hboc_part_4_answer_1 and not hboc_part_4_answer_3:
+                st.success("Korrekt!")
+                st.markdown(":sparkles: In unserem Fall haben wir eine **gesunde Ratsuchende getestet und ein negatives Ergebnis** mit der genetischen Diagnostik erzielt. Wir haben der Patientin eine **Risikoberechnung mittels CanRisk** angeboten und durchgeführt.")
+                # Part 5
+                st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_5.md"))
 
-                        st.markdown("❓ Wie hoch ist das 10-Jahres-Risiko der Patientin an Brustkrebs zu erkranken?")
-                        hboc_part_5_answer_0 = round(st.number_input("Antwort", step=0.1, format="%0.1f", value=answers["hboc_part_5_answer_0"]), 1)
+
+
+                with open('pages/hboc/vcfs/pedigree.txt', 'rb') as f:
+                    st.download_button('Download pedigree.txt', f, file_name='pedigree.txt')
+
+                st.markdown("❓ Wie hoch ist das 10-Jahres-Risiko der Patientin an Brustkrebs zu erkranken?")
+                hboc_part_5_answer_0 = st.radio("Antwort", ["0%", "1.5%", "3.6%", "4,2%", "5.6%", "8.1%"], horizontal=True, index=answers["hboc_part_5_answer_0"])
+                #round(st.number_input("Antwort", step=0.1, format="%0.1f", value=answers["hboc_part_5_answer_0"]), 1)
+                
+
+
+                if hboc_part_5_answer_0 == "4,2%":
+                    st.success("Korrekt!")
+                    st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_5_1.md"))
+
+                    hboc_part_5_1_answer_0 = st.radio("Antwort", 
+                                                      [
+                                                        "Ja, da die Ratsuchende jünger als 50 Jahre alt ist.",
+                                                        "Ja, da die Ratsuchende zur Risikogruppe 3 gehört.",
+                                                        "Nein, da die CanRisk-Berechnung unter 5% liegt.",
+                                                        "Nein, da die Multigenpanel-Analyse unauffällig war."
+                                                      ],
+                                                      key="hboc_part_5_1_answer_0",
+                                                      index=answers["hboc_part_5_1_answer_1"])
+                    
+                    if hboc_part_5_1_answer_0 == "Nein, da die CanRisk-Berechnung unter 5% liegt.":
                         
-                        if hboc_part_5_answer_0 == 4.2:
-                            st.success("Korrekt")
-                            st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_5_1.md"))
+                        st.markdown(":sparkles: Das 10-Jahresrisiko für Brustkrebs lag bei 4.2%. Daher sind die Einschlusskriterien für das intensivierte Früh- und Nachsorgeprogramm nicht erfüllt (10-Jahresrisiko mind. 5%).")
 
-                            with st.expander("Entscheidungsbaum"):
-                                hboc_dec_tree = Image.open(settings.hboc_images + "hboc_part_5_decision_tree.png")
-                                st.image(hboc_dec_tree)
+                        st.success("Damit ist die Übung abgeschlossen! Ausgezeichnet! :star:")
 
-                            hboc_part_5_1_answer_0 = st.checkbox("Ja", key="hboc_part_5_1_answer_0")
-                            hboc_part_5_1_answer_1 = st.checkbox("Nein", key="hboc_part_5_1_answer_1", value = answers["hboc_part_5_1_answer_1"])
-
-                            if hboc_part_5_1_answer_0 or hboc_part_5_1_answer_1:
-                                hboc_part_5_2_answer_0 = st.text_area("Begründe!", value = answers["hboc_part_5_2_answer_0"])    
-                            
-
-                                if hboc_part_5_2_answer_0 != "":
-                                    st.success("Damit ist die Übung abgeschlossen!")
-
-                                    st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_6.md"))
-                                    hboc_canrisk = Image.open(settings.hboc_images + "hboc_part_6_canrisk.png")
-                                    st.image(hboc_canrisk)
-                                    hboc_tumor = Image.open(settings.hboc_images + "hboc_part_6_tumorogenesis.png")
-                                    st.image(hboc_tumor)
-
-                                    if st.button("Belohnung"):
-                                        st.balloons()
-
-                                    # Part 7
-                                    st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_7.md"))
-                                    hboc_prs_distr = Image.open(settings.hboc_images + "hboc_part_7_prs_distr.png")
-                                    st.image(hboc_prs_distr)
-                                    st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_7_2.md"))
-
-                                    hboc_part_7_cols = st.columns([1,1])
-                                    with hboc_part_7_cols[0]:
-                                        with open('pages/hboc/vcfs/prs.vcf', 'rb') as f:
-                                            st.download_button('Download prs.vcf', f, file_name='prs.vcf')
-
-                                    hboc_part_7_answer_0 = round(st.number_input("Antwort", step=0.1, format="%0.1f", key="hboc_part_7_answer_0", value = answers["hboc_part_7_answer_0"]), 1)
-                                    
-                                    if hboc_part_7_answer_0 == 8.6:
-                                        st.success("Korrekt")
-                                        st.markdown(":question: Ändert sich die Vorsorgeempfehlung?")
-                                        hboc_part_7_answer_1 = st.checkbox("Ja", key="hboc_part_7_answer_1", value = answers["hboc_part_7_answer_1"])
-                                        hboc_part_7_answer_2 = st.checkbox("Nein", key="hboc_part_7_answer_2")
-
-                                        if hboc_part_7_answer_1 or hboc_part_7_answer_2:
-                                            hboc_part_7_answer_3 = st.text_area("Begründe", key="hboc_part_7_answer_3", value = answers["hboc_part_7_answer_3"])
-
-                                            if hboc_part_7_answer_3 != "":
-                                                st.success("Zusatzaufgabe abgeschlossen. Ausgezeichnet! :star:")
-
-
-                                    
-
-
-
+                        if st.button("Belohnung"):
+                            st.balloons()

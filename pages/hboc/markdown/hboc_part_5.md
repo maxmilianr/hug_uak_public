@@ -1,9 +1,9 @@
-## Teil 5: CanRisk-Risikoberechnung
+## Teil 4: CanRisk-Risikoberechnung
 
 Wir können der Mutter des Indexpatienten eine Risikoberechnung mittels [CanRisk ](https://www.canrisk.org/)anbieten
 
 * Zugangsdaten bekommen Sie von Ihrer DozentIn
-* Stammbaum mit .txt-Datei einlesen
+* Stammbaum mit **pedigree.txt**-Datei einlesen
 
 Für die Risikoberechnung benötigen wir noch einige Daten von der Ratsuchenden:
 
