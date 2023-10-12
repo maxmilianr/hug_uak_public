@@ -9,7 +9,7 @@ def print_wbs_part(show_answers):
     if show_answers:
         answers_wbs = {
             "wbs_answer_1" : "Williams-Beuren-Syndrom",
-            "wbs_part_2_answer_1" : ["Supravalvular aortic stenosis", "Hypercalcemia", "Low birth weight/slow weight gain", "Developemental delay", "Short stature", "Increased incedence of umbilical and inguinal hernias", "Hyperacusis"],
+            "wbs_part_2_answer_1" : ["Supravalvular aortic stenosis", "Hypercalcemia", "Low birth weight/slow weight gain", "Developemental delay", "Short stature", "Increased incedence of umbilical and inguinal hernias"],
             "wbs_part_2_answer_2" : ["Supravalvular aortic stenosis", "Developemental delay"],
             "wbs_part_3_answer_2_cause" : "7q11.2",
             "wbs_part_3_answer_2_inher" : "autosomal dominant",
@@ -77,14 +77,13 @@ def print_wbs_part(show_answers):
             
             Benutzen Sie GeneReviews für Ihre Recherche: https://www.ncbi.nlm.nih.gov/books/NBK1249/
 
-            :question:	Was sind typische Symptome eines Williams-Beuren-Syndroms (7 Angaben)?
+            :question:	Was sind typische Symptome eines Williams-Beuren-Syndroms (6 Angaben)?
             """
         )
 
-        wbs_symptoms = ["Supravalvular aortic stenosis", "Hypercalcemia", "Low birth weight/slow weight gain", "Developemental delay", "Short stature", "Increased incedence of umbilical and inguinal hernias", "Hyperacusis"]
+        wbs_symptoms = ["Supravalvular aortic stenosis", "Hypercalcemia", "Low birth weight/slow weight gain", "Developemental delay", "Short stature", "Increased incedence of umbilical and inguinal hernias"]
         wbs_symptoms_convoluted = [
             "Low birth weight/slow weight gain",
-            "Hyperacusis",
             "High birth weight",
             "Adipositas",
             "Hypercalcemia",
