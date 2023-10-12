@@ -16,7 +16,7 @@ def print_hoc_part(show_answers):
             "hboc_part_3_answer_1" : True,
             "hboc_part_3_reason" : "Keine ursächliche Variante identifiziert.",
             "hboc_part_4_answer_2" : True,
-            "hboc_part_5_answer_0" : 2,
+            "hboc_part_5_answer_0" : 3,
             "hboc_part_5_1_answer_1" : 2,
             "hboc_part_5_2_answer_0" : "Das Lebenszeitrisiko liegt unter 5%.",
             "hboc_part_7_answer_0" : 8.6,
@@ -132,12 +132,12 @@ def print_hoc_part(show_answers):
                     st.download_button('Download pedigree.txt', f, file_name='pedigree.txt')
 
                 st.markdown("❓ Wie hoch ist das 10-Jahres-Risiko der Patientin an Brustkrebs zu erkranken?")
-                hboc_part_5_answer_0 = st.radio("Antwort", ["0%", "1.5%", "3.4%", "4,2%", "5.6%", "8.1%"], horizontal=True, index=answers["hboc_part_5_answer_0"])
-                #round(st.number_input("Antwort", step=0.1, format="%0.1f", value=answers["hboc_part_5_answer_0"]), 1)
+                hboc_part_5_answer_0 = st.radio("Antwort", ["0-1%", "1-2%", "2-3%", "3-4%", "4-5%", ">5%"], horizontal=True, index=answers["hboc_part_5_answer_0"])
+
                 
 
 
-                if hboc_part_5_answer_0 == "3.4%":
+                if hboc_part_5_answer_0 == "3-4%":
                     st.success("Korrekt!")
                     st.markdown(read_markdown_file(settings.hboc_markdown + "hboc_part_5_1.md"))
 
