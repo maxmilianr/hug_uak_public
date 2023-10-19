@@ -169,7 +169,7 @@ def print_wbs_part(show_answers):
                     else:
                         wbs_part_2_answer_3_correct = False
                     
-                    if wbs_part_2_answer_3_2 == "de novo":
+                    if ("de novo" in wbs_part_2_answer_3_2) or ("denovo" in wbs_part_2_answer_3_2):
                         wbs_part_2_answer_3_2_correct = True
                     else:
                         wbs_part_2_answer_3_2_correct = False
