@@ -153,7 +153,7 @@ def print_hoc_part(show_answers):
                     
                     if hboc_part_5_1_answer_0 == "Nein, da die CanRisk-Berechnung unter 5% liegt.":
                         
-                        st.markdown(":sparkles: Das 10-Jahresrisiko für Brustkrebs lag bei 4.2%. Daher sind die Einschlusskriterien für das intensivierte Früh- und Nachsorgeprogramm nicht erfüllt (10-Jahresrisiko mind. 5%).")
+                        st.markdown(":sparkles: Das 10-Jahresrisiko für Brustkrebs lag bei 3.4%. Daher sind die Einschlusskriterien für das intensivierte Früh- und Nachsorgeprogramm nicht erfüllt (10-Jahresrisiko mind. 5%).")
 
                         st.success("Damit ist die Übung abgeschlossen! Ausgezeichnet! :star:")
 
