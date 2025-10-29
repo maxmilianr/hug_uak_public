@@ -21,7 +21,7 @@ with st.sidebar:
 st.title(":dna: UaK-WebApp der Humangenetik")
 
 "---"
-"Welcher Fall wird bearbeitet?"
+"### Welcher Fall wird bearbeitet?"
 
 tabs = st.tabs([":woman_in_lotus_position: FBREK", ":brain: ID"])
 
